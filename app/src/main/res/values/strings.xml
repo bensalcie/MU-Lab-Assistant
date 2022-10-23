@@ -5,4 +5,15 @@
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="selected_item">Selected item:</string>
+
+    <string-array name="Languages">
+        <item>Textile Lab</item>
+        <item>Chemical Lab</item>
+        <item>Machanical Lab</item>
+        <item>Civil Lab</item>
+        <item>Computer Lab</item>
+        <item>Electrical Labs</item>
+    </string-array>
 </resources>

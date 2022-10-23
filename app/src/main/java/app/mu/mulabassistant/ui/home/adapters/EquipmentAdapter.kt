@@ -1,11 +1,14 @@
 package app.mu.mulabassistant.ui.home.adapters
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import app.mu.mulabassistant.R
+import app.mu.mulabassistant.ui.home.DetailsActivity
 import app.mu.mulabassistant.ui.home.models.Equipment
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -27,15 +30,31 @@ class EquipmentAdapter constructor(options: FirebaseRecyclerOptions<Equipment>) 
 
 
             val profileImage = itemView.findViewById<ImageView>(R.id.ivEquipmentImage)
-            Picasso.get().load(equipment.imageone).placeholder(android.R.drawable.ic_menu_gallery).into(profileImage)
+            Picasso.get().load(equipment.imageone).placeholder(R.drawable.loadingimage).into(profileImage)
             tvTitle.text = equipment.name
-            tvDescription.text= equipment.description
+            tvDescription.text= equipment.labcategory
             tvStatus.text = when(equipment.isbooked){
                 true->"Booked"
                 false->"Not Booked"
                 else -> {
                     "Not Available"
                 }
+            }
+
+            itemView.setOnClickListener {
+
+                val bundle = Bundle()
+                bundle.putString("name",equipment.name)
+                bundle.putString("description",equipment.description)
+                bundle.putString("imageone",equipment.imageone)
+                bundle.putString("labcategory",equipment.labcategory)
+                bundle.putString("key",equipment.key)
+                equipment.cost?.let { it1 -> bundle.putDouble("cost", it1) }
+                equipment.date?.let { it1 -> bundle.putLong("date", it1) }
+                equipment.avaibalilitydate?.let { it1 -> bundle.putLong("avaibalilitydate", it1) }
+                equipment.isbooked?.let { it1 -> bundle.putBoolean("isbooked", it1) }
+                itemView.context.startActivity(Intent(it.context,DetailsActivity::class.java).putExtras(bundle))
+
             }
 
 

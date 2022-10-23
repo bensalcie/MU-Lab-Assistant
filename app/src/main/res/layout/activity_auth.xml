@@ -5,63 +5,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.auth.AuthActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_height="match_parent">
+   <ScrollView
+       android:layout_width="match_parent"
+       android:scrollbars="none"
+       android:layout_height="match_parent">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:orientation="vertical"
+           android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:src="@mipmap/ic_launcher_round"
-            android:layout_height="200dp"/>
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_gravity="center"
+               android:src="@drawable/lab"
+               android:scaleType="centerCrop"
+               android:layout_marginBottom="50dp"
+               android:layout_height="300dp"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_margin="20dp"
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:layout_marginStart="20dp"
+               android:layout_marginEnd="20dp"
+               android:textStyle="bold"
+               android:textSize="18sp"
+               android:fontFamily="sans-serif-thin"
+               android:text="Welcome to MuLab Assistant Admin app"
+               android:layout_height="wrap_content"/>
 
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:inputType="textEmailAddress"
-                android:id="@+id/tvEmail"
-
-                android:hint="Email"
-
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-
-            android:layout_margin="20dp"
-            app:passwordToggleEnabled="true"
-
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:inputType="textPassword"
-                android:id="@+id/tvpassword"
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_width="match_parent"
+               android:layout_margin="20dp"
 
 
-                android:hint="Password"
+               android:layout_height="wrap_content">
 
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
+               <com.google.android.material.textfield.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:inputType="textEmailAddress"
+                   android:id="@+id/tvEmail"
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:layout_width="match_parent"
-            android:text="Sign In"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginEnd="60dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:id="@+id/btnLogin"
-            android:layout_height="wrap_content"/>
+                   android:hint="Email"
 
-    </LinearLayout>
+                   android:layout_height="wrap_content"/>
+           </com.google.android.material.textfield.TextInputLayout>
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_width="match_parent"
+
+               android:layout_margin="20dp"
+               app:passwordToggleEnabled="true"
+
+               android:layout_height="wrap_content">
+               <com.google.android.material.textfield.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:inputType="textPassword"
+                   android:id="@+id/tvpassword"
+
+                   android:hint="Password"
+
+                   android:layout_height="wrap_content"/>
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+               android:layout_width="match_parent"
+               android:text="Sign In"
+               android:layout_marginTop="30dp"
+               android:layout_marginStart="60dp"
+               android:layout_marginEnd="60dp"
+               android:gravity="center"
+               android:layout_gravity="center"
+               android:id="@+id/btnLogin"
+               android:layout_height="wrap_content"/>
+
+       </LinearLayout>
+   </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
