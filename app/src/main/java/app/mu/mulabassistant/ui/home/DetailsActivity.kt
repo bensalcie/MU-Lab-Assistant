@@ -42,7 +42,11 @@ class DetailsActivity : AppCompatActivity() {
         )
         supportActionBar?.title = equipment.name
         Picasso.get().load(equipment.imageone).placeholder(R.drawable.loadingimage).into(ivDetails)
-        tvCost.text = "Costs ${equipment.cost} Ksh to Book\nFound in ${equipment.labcategory}"
+        var wheretoFindIt = when(equipment.labcategory){
+            null -> ""
+            else -> "Found in ${equipment.labcategory}"
+        }
+        tvCost.text = "Costs ${equipment.cost} Ksh to Book\n$wheretoFindIt"
         tvDescription.text = equipment.description
 
         val selectedColor = when(equipment.isbooked){

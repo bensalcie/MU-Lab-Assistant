@@ -12,6 +12,7 @@
        <LinearLayout
            android:layout_width="match_parent"
            android:orientation="vertical"
+           android:layout_marginBottom="20dp"
            android:layout_height="match_parent">
 
            <ImageView
@@ -20,21 +21,23 @@
                android:src="@drawable/lab"
                android:scaleType="centerCrop"
                android:layout_marginBottom="50dp"
-               android:layout_height="300dp"/>
+               android:layout_height="280dp"/>
 
            <com.google.android.material.textview.MaterialTextView
                android:layout_width="match_parent"
                android:layout_marginStart="20dp"
                android:layout_marginEnd="20dp"
                android:textStyle="bold"
+               android:layout_gravity="center"
+               android:gravity="center"
                android:textSize="18sp"
                android:fontFamily="sans-serif-thin"
-               android:text="Welcome to MuLab Assistant Admin app"
+               android:text="Welcome to MuLab Assistant \n(Admin app)"
                android:layout_height="wrap_content"/>
 
            <com.google.android.material.textfield.TextInputLayout
                android:layout_width="match_parent"
-               android:layout_margin="20dp"
+               android:layout_margin="10dp"
 
 
                android:layout_height="wrap_content">
@@ -51,7 +54,7 @@
            <com.google.android.material.textfield.TextInputLayout
                android:layout_width="match_parent"
 
-               android:layout_margin="20dp"
+               android:layout_margin="10dp"
                app:passwordToggleEnabled="true"
 
                android:layout_height="wrap_content">
@@ -68,12 +71,23 @@
            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                android:layout_width="match_parent"
                android:text="Sign In"
-               android:layout_marginTop="30dp"
+               android:layout_marginTop="20dp"
                android:layout_marginStart="60dp"
                android:layout_marginEnd="60dp"
                android:gravity="center"
+               android:layout_marginBottom="20dp"
                android:layout_gravity="center"
                android:id="@+id/btnLogin"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="wrap_content"
+               android:id="@+id/tvForgotPassword"
+               android:textColor="@color/purple_200"
+               android:text="Forgot password?"
+               android:layout_gravity="center"
+               android:textStyle="italic"
+               android:layout_margin="10dp"
                android:layout_height="wrap_content"/>
 
        </LinearLayout>

@@ -15,10 +15,12 @@ import app.mu.mulabassistant.R
 import app.mu.mulabassistant.databinding.FragmentHomeBinding
 import app.mu.mulabassistant.ui.home.adapters.EquipmentAdapter
 import app.mu.mulabassistant.ui.home.models.Equipment
+import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.gms.tasks.Task
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -32,12 +34,15 @@ class HomeFragment : Fragment() {
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+//    private val binding get() = _binding!!
     private lateinit var equipmentDb: DatabaseReference
     private lateinit var equipmentAdapter:EquipmentAdapter
     private lateinit var equipmentStorage: StorageReference
 
     private lateinit var equipmentsProgress:ProgressBar
+    private lateinit var addEquipmentFragment:ExtendedFloatingActionButton
+    private lateinit var imageSlider:ImageSlider
+    private lateinit var root:View
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,15 +50,19 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+//        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         equipmentDb = FirebaseDatabase.getInstance().reference.child("MUAPP/EQUIPMENT")
-        equipmentsProgress = binding.equipmentsProgress
         equipmentStorage = FirebaseStorage.getInstance().reference.child("MUAPP/EQUIPMENT")
 
 
 
-        val root: View = binding.root
-        binding.addEquipmentFragment.setOnClickListener {
+         root = inflater.inflate(R.layout.fragment_home, container, false)
+        equipmentsProgress = root.findViewById(R.id.equipmentsProgress)
+        addEquipmentFragment = root.findViewById(R.id.addEquipmentFragment)
+        imageSlider= root.findViewById(R.id.image_slider)
+
+
+        addEquipmentFragment.setOnClickListener {
             findNavController().navigate(R.id.addEquipmentFragment)
         }
         equipmentsProgress.visibility = View.VISIBLE
@@ -85,7 +94,7 @@ class HomeFragment : Fragment() {
 
                     apply {
 
-                        binding.imageSlider.setImageList(imageList)
+                       imageSlider.setImageList(imageList)
                         equipmentsProgress.visibility = View.GONE
 
 
@@ -107,8 +116,8 @@ class HomeFragment : Fragment() {
 //        equipmentsProgress.visibility = View.GONE
 
 
-        val recyclerView = binding.root.findViewById<RecyclerView>(R.id.recyclergroupchat)
-        val gmanager= GridLayoutManager(binding.root.context,2)
+        val recyclerView = root.findViewById<RecyclerView>(R.id.recyclergroupchat)
+        val gmanager= GridLayoutManager(root.context,2)
 
         recyclerView.layoutManager = gmanager
 
