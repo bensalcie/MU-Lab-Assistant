@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp">
+
+        <!--image view for displaying course image-->
+        <ImageView
+            android:id="@+id/idIVCourse"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/lab" />
+
+        <!--text view for displaying course name-->
+        <TextView
+            android:id="@+id/idTVCourseName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/idIVCourse"
+            android:layout_toRightOf="@id/idIVCourse"
+            android:text="Please make your Payments"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!--text view for displaying course tracks-->
+        <TextView
+            android:id="@+id/idTVAmountPayable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idTVCourseName"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/idIVCourse"
+            android:layout_toRightOf="@id/idIVCourse"
+            android:text="Course Tracks : 30"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <!--text view for displaying course duration-->
+        <TextView
+            android:id="@+id/idTVCourseDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idTVAmountPayable"
+            android:layout_marginTop="10dp"
+
+            android:layout_toEndOf="@id/idIVCourse"
+            android:layout_toRightOf="@id/idIVCourse"
+            android:text="MPESA PAYBILL\nBUSINESS NUMBER : 12345678\nACCOUNT NUMBER: YOUR ADM NO. "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <!--button for dismissing our dialog-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:id="@+id/confirmCodeView"
+            android:layout_below="@id/idTVCourseDuration"
+
+
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:inputType="textPersonName"
+                android:id="@+id/tvEmail"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+
+                android:hint="Confirmation Code"
+
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/idBtnDismiss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/confirmCodeView"
+            android:layout_margin="10dp"
+
+            android:text="Confirm Payment"
+            android:textAllCaps="false" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -25,7 +25,7 @@ class HomeActivity : AppCompatActivity() {
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.hide()
+       // supportActionBar?.hide()
 
         val navView: BottomNavigationView = binding.navView
         mAuth = FirebaseAuth.getInstance()

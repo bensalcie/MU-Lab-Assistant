@@ -65,7 +65,9 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        equipmentAdapter.stopListening()
+
+       // _binding = null
     }
 
     private fun getRecentImages() {
