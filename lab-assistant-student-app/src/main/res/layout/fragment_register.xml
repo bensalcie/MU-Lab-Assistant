@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:src="@drawable/lab"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="30dp"
+                android:layout_height="200dp"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-thin"
+                android:text="Create your Account "
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+
+
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:id="@+id/tvName"
+
+                    android:hint="Name"
+
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+
+
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:id="@+id/tvEmail"
+
+                    android:hint="Email"
+
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+
+                android:layout_margin="10dp"
+                app:passwordToggleEnabled="true"
+
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:inputType="textPassword"
+                    android:id="@+id/tvpassword"
+
+                    android:hint="Password"
+
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+
+                android:layout_margin="10dp"
+                app:passwordToggleEnabled="true"
+
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:inputType="textPassword"
+                    android:id="@+id/tvRetypepassword"
+
+                    android:hint="Retype Password"
+
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:layout_width="match_parent"
+                android:text="Sign Up"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                android:gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnSignUp"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/tvForgotPassword"
+                    android:textColor="@color/purple_200"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:textStyle="italic"
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/button_second"
+                    android:gravity="end"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:textStyle="bold"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/logininstead"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

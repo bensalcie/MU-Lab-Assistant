@@ -20,3 +20,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MU Lab Assistant"
 include ':app'
+include ':lab-assistant-student-app'
