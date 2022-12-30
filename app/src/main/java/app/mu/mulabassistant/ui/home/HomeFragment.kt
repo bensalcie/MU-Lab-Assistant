@@ -116,7 +116,7 @@ class HomeFragment : Fragment() {
 //        equipmentsProgress.visibility = View.GONE
 
 
-        val recyclerView = root.findViewById<RecyclerView>(R.id.recyclergroupchat)
+        val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerequipments)
         val gmanager= GridLayoutManager(root.context,2)
 
         recyclerView.layoutManager = gmanager

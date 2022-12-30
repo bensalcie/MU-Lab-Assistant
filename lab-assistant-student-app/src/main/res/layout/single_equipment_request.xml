@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.circularreveal.cardview.CircularRevealCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_height="wrap_content">
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:orientation="horizontal"
+     android:layout_gravity="center"
+     android:layout_height="wrap_content">
+     <com.google.android.material.textview.MaterialTextView
+         android:layout_width="match_parent"
+         android:layout_gravity="center"
+         android:layout_weight="5"
+         android:textSize="30sp"
+         android:gravity="center"
+         android:id="@+id/tvPosition"
+         android:textStyle="bold"
+         android:fontFamily="cursive"
+         android:layout_height="wrap_content"/>
+
+     <com.google.android.material.card.MaterialCardView
+         android:layout_width="match_parent"
+         android:layout_weight="1"
+         app:cardCornerRadius="10dp"
+
+         app:cardUseCompatPadding="true"
+         app:cardPreventCornerOverlap="true"
+         app:cardElevation="2dp"
+         android:layout_height="wrap_content">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:orientation="horizontal"
+             android:layout_height="wrap_content">
+
+             <ImageView
+                 android:layout_width="match_parent"
+                 android:scaleType="centerCrop"
+                 android:layout_weight="2"
+                 android:id="@+id/ivEquipmentImage"
+
+                 android:src="@android:drawable/ic_menu_gallery"
+
+                 android:layout_height="match_parent"/>
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:orientation="vertical"
+                 android:layout_weight="1"
+                 android:layout_height="wrap_content">
+
+                 <com.google.android.material.textview.MaterialTextView
+                     android:layout_width="match_parent"
+                     android:text="You requested to book the "
+                     android:id="@+id/tvHeader"
+                     android:textStyle="bold"
+                     android:textSize="18sp"
+                     android:layout_marginTop="5dp"
+                     android:layout_height="wrap_content"/>
+
+                 <com.google.android.material.textview.MaterialTextView
+                     android:layout_width="match_parent"
+                     android:text="Title"
+                     android:id="@+id/tvTitle"
+                     android:lines="1"
+                     android:textStyle="bold"
+                     android:textSize="16sp"
+                     android:layout_marginTop="5dp"
+                     android:gravity="center"
+                     android:layout_height="wrap_content"/>
+                 <com.google.android.material.textview.MaterialTextView
+                     android:layout_width="match_parent"
+                     android:id="@+id/tvDescription"
+                     android:text="Subtitle"
+                     android:lines="1"
+                     android:textStyle="bold"
+                     android:fontFamily="sans-serif-thin"
+                     android:layout_gravity="center"
+                     android:gravity="center"
+                     android:textSize="14sp"
+                     android:layout_marginStart="15dp"
+                     android:layout_marginEnd="15dp"
+                     android:layout_height="wrap_content"/>
+                 <com.google.android.material.textview.MaterialTextView
+                     android:layout_width="match_parent"
+                     android:id="@+id/tvReason"
+                     android:text="Subtitle"
+                     android:lines="1"
+                     android:textStyle="bold"
+                     android:fontFamily="sans-serif-thin"
+                     android:layout_gravity="center"
+                     android:gravity="center"
+                     android:textSize="12sp"
+                     android:layout_marginStart="15dp"
+                     android:layout_marginEnd="15dp"
+                     android:layout_height="wrap_content"/>
+                 <com.google.android.material.textview.MaterialTextView
+                     android:layout_width="wrap_content"
+                     android:id="@+id/tvStatus"
+                     android:lines="1"
+                     android:layout_gravity="center"
+                     android:padding="9dp"
+                     android:background="@android:drawable/editbox_background"
+                     android:textStyle="bold"
+                     android:fontFamily="sans-serif-thin"
+                     android:gravity="center"
+                     android:textColor="@color/white"
+                     android:layout_marginStart="15dp"
+                     android:layout_marginBottom="5dp"
+                     android:layout_marginEnd="15dp"
+                     android:text="Subtitle"
+                     android:layout_height="wrap_content"/>
+
+
+
+
+
+
+             </LinearLayout>
+
+
+         </LinearLayout>
+     </com.google.android.material.card.MaterialCardView>
+ </LinearLayout>
+
+
+</com.google.android.material.circularreveal.cardview.CircularRevealCardView>

@@ -61,7 +61,7 @@ class EquipmentAdapter constructor(options: FirebaseRecyclerOptions<Equipment>) 
                 bundle.putString("description",equipment.description)
                 bundle.putString("imageone",equipment.imageone)
                 bundle.putString("labcategory",equipment.labcategory)
-                bundle.putString("key",equipment.key)
+                bundle.putString("id",equipment.id)
                 equipment.cost?.let { it1 -> bundle.putDouble("cost", it1) }
                 equipment.date?.let { it1 -> bundle.putLong("date", it1) }
                 equipment.avaibalilitydate?.let { it1 -> bundle.putLong("avaibalilitydate", it1) }
