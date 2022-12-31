@@ -47,7 +47,6 @@ class NotificationAdapter constructor(options: FirebaseRecyclerOptions<Equipment
             tvDescription.text= equipment.equipment?.labcategory
             tvPosition.text = (position+1).toString()
 
-            Log.d("EQUIPMENT", "setProductName: ${equipment.isApproved}")
             val status: String = if (equipment.isApproved == true){
                 " \tApproved\t "
             }else{
@@ -78,8 +77,21 @@ class NotificationAdapter constructor(options: FirebaseRecyclerOptions<Equipment
 
 
             itemView.setOnClickListener {
+                when(equipment.isApproved == true && equipment.isPaid == true){
+                    true->{
+                        Toast.makeText(
+                            itemView.context,
+                            "This Equipment has already been approved.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }else->{
+                    showPaymentConfirmationSheet(equipment)
 
-                showPaymentConfirmationSheet(equipment)
+                }
+
+                }
+
+
 
 
 

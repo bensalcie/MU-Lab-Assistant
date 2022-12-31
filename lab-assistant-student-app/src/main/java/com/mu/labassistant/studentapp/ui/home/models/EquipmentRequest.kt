@@ -9,9 +9,9 @@ data class EquipmentRequest (
     val equipment:Equipment?=null,
 
     val equipmentAdmin:String?=null,
-
+    @field:JvmField
 val isApproved:Boolean?=null,
-
+    @field:JvmField
 val isPaid:Boolean?=null,
 
 val requestendday:Long?=null,

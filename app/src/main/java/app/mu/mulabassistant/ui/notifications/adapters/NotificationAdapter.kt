@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import app.mu.mulabassistant.R
 import app.mu.mulabassistant.ui.notifications.BookingsDetailsActivity
@@ -46,6 +47,7 @@ class NotificationAdapter constructor(options: FirebaseRecyclerOptions<Equipment
 
             tvDescription.text= equipment.equipment?.labcategory
             tvPosition.text = (position+1).toString()
+
             tvStatus.text = when(equipment.isApproved){
                 true->" \tApproved\t "
                 else->" \tAwaiting your Approval\t "
@@ -69,32 +71,40 @@ class NotificationAdapter constructor(options: FirebaseRecyclerOptions<Equipment
 
 
 
-            itemView.setOnClickListener {
 
-                //showPaymentConfirmationSheet(equipment)
-
-
-                val bundle = Bundle()
-                bundle.putString("name",equipment.equipment?.name)
-                bundle.putString("description",equipment.equipment?.description)
-                bundle.putString("imageone",equipment.equipment?.imageone)
-                bundle.putString("labcategory",equipment.equipment?.labcategory)
-                bundle.putString("id",equipment.equipment?.id)
-
-                bundle.putString("paymentcode",equipment.paymentcode)
-
-                bundle.putString("userId",equipment.userId)
-                bundle.putString("equipmentAdmin",equipment.equipmentAdmin)
+                    itemView.setOnClickListener {
+                        when(equipment.isApproved == true && equipment.isPaid == true){
+                            true->{
+                                Toast.makeText(itemView.context, "Request was already approved", Toast.LENGTH_SHORT)
+                                    .show()
+                            }
+                            else->{
+                        //showPaymentConfirmationSheet(equipment)
 
 
-                equipment.cost?.let { it1 -> bundle.putDouble("cost", it1) }
-                equipment.equipment?.date?.let { it1 -> bundle.putLong("date", it1) }
-                equipment.equipment?.avaibalilitydate?.let { it1 -> bundle.putLong("avaibalilitydate", it1) }
-                equipment.equipment?.isbooked?.let { it1 -> bundle.putBoolean("isbooked", it1) }
+                        val bundle = Bundle()
+                        bundle.putString("name",equipment.equipment?.name)
+                        bundle.putString("description",equipment.equipment?.description)
+                        bundle.putString("imageone",equipment.equipment?.imageone)
+                        bundle.putString("labcategory",equipment.equipment?.labcategory)
+                        bundle.putString("id",equipment.equipment?.id)
+
+                        bundle.putString("paymentcode",equipment.paymentcode)
+
+                        bundle.putString("userId",equipment.userId)
+                        bundle.putString("equipmentAdmin",equipment.equipmentAdmin)
 
 
-                itemView.context.startActivity(Intent(itemView.context,BookingsDetailsActivity::class.java).putExtras(bundle))
+                        equipment.cost?.let { it1 -> bundle.putDouble("cost", it1) }
+                        equipment.equipment?.date?.let { it1 -> bundle.putLong("date", it1) }
+                        equipment.equipment?.avaibalilitydate?.let { it1 -> bundle.putLong("avaibalilitydate", it1) }
+                        equipment.equipment?.isbooked?.let { it1 -> bundle.putBoolean("isbooked", it1) }
 
+
+                        itemView.context.startActivity(Intent(itemView.context,BookingsDetailsActivity::class.java).putExtras(bundle))
+
+                    }
+                }
             }
             val usersDb = FirebaseDatabase.getInstance().reference.child("MUAPP/MUSTUDENTS")
             equipment.userId?.let {
