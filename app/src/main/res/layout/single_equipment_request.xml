@@ -87,7 +87,7 @@
                      android:layout_width="match_parent"
                      android:id="@+id/tvReason"
                      android:text="Subtitle"
-                     android:lines="1"
+                     android:lines="2"
                      android:textStyle="bold"
                      android:fontFamily="sans-serif-thin"
                      android:layout_gravity="center"

@@ -71,7 +71,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:inputType="textPersonName"
-                android:id="@+id/tvEmail"
+                android:id="@+id/etConfirmationCode"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
 
