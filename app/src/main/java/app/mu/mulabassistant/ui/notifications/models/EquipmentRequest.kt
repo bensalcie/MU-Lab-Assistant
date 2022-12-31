@@ -3,6 +3,10 @@ package app.mu.mulabassistant.ui.notifications.models
 import app.mu.mulabassistant.ui.home.models.Equipment
 
 data class EquipmentRequest (
+    @field:JvmField
+    val isApproved:Boolean?=null,
+    @field:JvmField
+    val isPaid:Boolean?=null,
 
     val cost:Double?=null,
 
@@ -12,9 +16,7 @@ data class EquipmentRequest (
 
     val equipmentAdmin:String?=null,
 
-    val isApproved:Boolean?=null,
 
-    val isPaid:Boolean?=null,
 
     val requestendday:Long?=null,
 
