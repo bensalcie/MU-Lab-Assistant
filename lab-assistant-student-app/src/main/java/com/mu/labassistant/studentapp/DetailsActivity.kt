@@ -133,6 +133,7 @@ class DetailsActivity : AppCompatActivity() {
                             equipmentRequestMap["requestendday"] = it.second
                             equipmentRequestMap["cost"] = cost!!
                             equipmentRequestMap["days"] = days
+                            equipmentRequestMap["paymentcode"] = "default"
 
 
 

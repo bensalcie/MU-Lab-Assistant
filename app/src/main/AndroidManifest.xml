@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="app.mu.mulabassistant">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,9 +16,17 @@
         android:theme="@style/Theme.MULabAssistant"
         tools:targetApi="31">
         <activity
-            android:name=".ui.home.DetailsActivity"
+            android:name=".ui.notifications.BookingsDetailsActivity"
             android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.home.DetailsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ui.auth.AuthActivity"
             android:exported="false" />

@@ -33,7 +33,7 @@ class DetailsActivity : AppCompatActivity() {
             date = bundle?.getLong("date"),
                     imageone = bundle?.getString("imageone"),
             isbooked = bundle?.getBoolean("isbooked"),
-            key =bundle?.getString("key"),
+            id =bundle?.getString("id"),
             labcategory =  bundle?.getString("labcategory"),
 
 

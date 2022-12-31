@@ -21,4 +21,5 @@ data class EquipmentRequest (
     val requeststartday:Long?=null,
 
     val userId:String?=null,
+    val paymentcode:String?=null,
         )

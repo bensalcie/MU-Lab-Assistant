@@ -1,6 +1,8 @@
 package app.mu.mulabassistant.ui.notifications.adapters
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import app.mu.mulabassistant.R
+import app.mu.mulabassistant.ui.notifications.BookingsDetailsActivity
 import app.mu.mulabassistant.ui.notifications.models.EquipmentRequest
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -45,7 +48,7 @@ class NotificationAdapter constructor(options: FirebaseRecyclerOptions<Equipment
             tvPosition.text = (position+1).toString()
             tvStatus.text = when(equipment.isApproved){
                 true->" \tApproved\t "
-                else->" \tAwaiting Approval\t "
+                else->" \tAwaiting your Approval\t "
 
             }
             tvHeader.text = "New equipment request! "
@@ -57,7 +60,7 @@ class NotificationAdapter constructor(options: FirebaseRecyclerOptions<Equipment
             }
             tvReason.text = when(equipment.isPaid){
                 true->" \t(Paid)\t "
-                else->" \t(You haven't Paid Ksh. ${equipment.cost})\t "
+                else->" \t(You haven't verified their  Ksh. ${equipment.cost}) payment\t "
 
             }
             tvStatus.backgroundTintList = itemView.context.resources.getColorStateList(selectedColor)
@@ -71,6 +74,26 @@ class NotificationAdapter constructor(options: FirebaseRecyclerOptions<Equipment
                 //showPaymentConfirmationSheet(equipment)
 
 
+                val bundle = Bundle()
+                bundle.putString("name",equipment.equipment?.name)
+                bundle.putString("description",equipment.equipment?.description)
+                bundle.putString("imageone",equipment.equipment?.imageone)
+                bundle.putString("labcategory",equipment.equipment?.labcategory)
+                bundle.putString("id",equipment.equipment?.id)
+
+                bundle.putString("paymentcode",equipment.paymentcode)
+
+                bundle.putString("userId",equipment.userId)
+                bundle.putString("equipmentAdmin",equipment.equipmentAdmin)
+
+
+                equipment.cost?.let { it1 -> bundle.putDouble("cost", it1) }
+                equipment.equipment?.date?.let { it1 -> bundle.putLong("date", it1) }
+                equipment.equipment?.avaibalilitydate?.let { it1 -> bundle.putLong("avaibalilitydate", it1) }
+                equipment.equipment?.isbooked?.let { it1 -> bundle.putBoolean("isbooked", it1) }
+
+
+                itemView.context.startActivity(Intent(itemView.context,BookingsDetailsActivity::class.java).putExtras(bundle))
 
             }
             val usersDb = FirebaseDatabase.getInstance().reference.child("MUAPP/MUSTUDENTS")
@@ -112,39 +135,6 @@ class NotificationAdapter constructor(options: FirebaseRecyclerOptions<Equipment
 
         }
 
-        private fun showPaymentConfirmationSheet(equipment: EquipmentRequest) {
-
-            // on below line we are creating a new bottom sheet dialog.
-            val dialog = BottomSheetDialog(itemView.context)
-
-            // on below line we are inflating a layout file which we have created.
-            val view = LayoutInflater.from(itemView.context).inflate(R.layout.payment_verification_dialog, null)
-
-            // on below line we are creating a variable for our button
-            // which we are using to dismiss our dialog.
-            val btnClose = view.findViewById<Button>(R.id.idBtnDismiss)
-            val idTVAmountPayable = view.findViewById<TextView>(R.id.idTVAmountPayable)
-            idTVAmountPayable.text = "Total Amount Payable: Ksh. ${equipment.cost}"
-
-            // on below line we are adding on click listener
-            // for our dismissing the dialog button.
-            btnClose.setOnClickListener {
-                // on below line we are calling a dismiss
-                // method to close our dialog.
-                dialog.dismiss()
-            }
-            // below line is use to set cancelable to avoid
-            // closing of dialog box when clicking on the screen.
-            dialog.setCancelable(true)
-
-            // on below line we are setting
-            // content view to our view.
-            dialog.setContentView(view)
-
-            // on below line we are calling
-            // a show method to display a dialog.
-            dialog.show()
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EquipmentViewModel {

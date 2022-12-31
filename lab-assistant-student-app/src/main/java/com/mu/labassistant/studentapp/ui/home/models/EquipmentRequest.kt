@@ -19,4 +19,5 @@ val requestendday:Long?=null,
 val requeststartday:Long?=null,
 
 val userId:String?=null,
+    var paymentcode:String?=null,
         )
